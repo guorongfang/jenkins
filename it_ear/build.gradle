@@ -1,0 +1,34 @@
+apply plugin: 'ear'
+apply plugin: 'java'
+apply plugin: 'eclipse-wtp'
+
+repositories { mavenCentral() }
+
+eclipse {
+    wtp {
+       facet {
+        facet name:'jst.ear', version:'6.0'
+       }
+    }
+}
+
+dependencies {        
+    //following dependencies will become the ear modules and placed in the ear root    
+    deploy project(':it_ejb')        
+    deploy project(path: ':it_web', configuration: 'archives')
+    
+    //following dependencies will become ear libs and placed in a dir configured via libDirName property
+//    earlib group: 'log4j', name: 'log4j', version: '1.2.15', ext: 'jar'
+}
+
+ear {
+//    appDirName 'src/main/application'  // use application metadata found in this folder
+//    appDirName 'EarContent/META-INF'
+    libDirName 'APP-INF/lib'  // put dependency libraries into APP-INF/lib inside the generated EAR;
+    
+//    metaInf {
+// 		from 'EarContent/META-INF'
+//	}
+    
+}
+    

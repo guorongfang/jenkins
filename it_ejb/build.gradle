@@ -1,0 +1,28 @@
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+
+eclipse {
+    wtp {
+       facet {
+        facet name:'jst.ejb', version:'3.1'
+       }
+    }
+}
+
+sourceCompatibility = 1.6
+
+repositories {    
+    mavenCentral()
+}
+
+dependencies {   
+	providedCompile files('src/wlfullclient.jar')
+}
+
+
+jar {
+from ('./src/main/java') {
+	include 'META-INF/ejb-jar.xml'
+	include 'META-INF/weblogic-ejb-jar.xml'
+}
+}
