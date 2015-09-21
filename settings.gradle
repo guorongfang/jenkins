@@ -1,2 +1,2 @@
 
-include "it_ejb", "it_web", "it_ear"
+include "it_ejb", "it_web", "it_utility", "it_ear"
