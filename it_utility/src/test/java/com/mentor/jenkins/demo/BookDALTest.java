@@ -1,7 +1,7 @@
 package com.mentor.jenkins.demo;
 
 
-import com.miguno.bootstrap.gtm.Book;
+import com.mentor.jenkins.demo.Book;
 import org.junit.BeforeClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
