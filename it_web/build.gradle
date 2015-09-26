@@ -1,5 +1,9 @@
 apply plugin: 'war'
 apply plugin: 'eclipse-wtp'
+apply plugin: 'findbugs'
+apply plugin: 'checkstyle'
+apply plugin: 'pmd'
+
 
 sourceCompatibility = 1.6
 
@@ -15,3 +19,61 @@ eclipse {
 dependencies {
     providedCompile ( project(':it_ejb') )    
 }
+
+findbugs {
+    toolVersion = '3.0.1' // Default version with Gradle 1.0
+    ignoreFailures = true    
+    reportsDir = file("$project.buildDir/reports/findbugs") 
+	effort = "max" 
+}
+
+checkstyle {
+    ignoreFailures = true
+    toolVersion = '6.6'
+    configFile = file('config/checkstyle/checkstyle.xml')
+}
+
+
+
+checkstyleMain {
+    ignoreFailures = true
+    reports {
+        include ( '**/*.java')
+        xml {
+           destination "${rootProject.buildDir}/reports/checkstyle/main.xml" 
+        }
+    }
+    configFile = file('./config/checkstyle/checkstyle.xml')
+}
+
+checkstyleTest {
+    ignoreFailures = true
+    reports {
+        include ( '**/*.java')
+        xml {
+            destination "${rootProject.buildDir}/reports/checkstyle/test.xml"
+        }
+    }
+    configFile = file('./config/checkstyle/checkstyle-test.xml')
+}
+
+
+pmd {
+    ignoreFailures = true
+    toolVersion = '5.2.2'
+    reportsDir = file("$project.buildDir/reports/pmd") 
+//  	ruleSets = [ 
+//    	"basic", 
+//    	"braces" 
+//  	] 
+    
+}
+
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+ }
+ 
+ 
