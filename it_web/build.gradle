@@ -23,7 +23,7 @@ dependencies {
 findbugs {
     toolVersion = '3.0.1' // Default version with Gradle 1.0
     ignoreFailures = true    
-    reportsDir = file("$project.buildDir/reports/findbugs") 
+//    reportsDir = file("$project.buildDir/reports/findbugs") 
 	effort = "max" 
 }
 
@@ -34,15 +34,14 @@ checkstyle {
 }
 
 
-
 checkstyleMain {
     ignoreFailures = true
-    reports {
-        include ( '**/*.java')
-        xml {
-           destination "${rootProject.buildDir}/reports/checkstyle/main.xml" 
-        }
-    }
+//    reports {
+//        include ( '**/*.java')
+//        xml {
+//           destination "${rootProject.buildDir}/reports/checkstyle/main.xml" 
+//        }
+//    }
     configFile = file('./config/checkstyle/checkstyle.xml')
 }
 
@@ -61,7 +60,7 @@ checkstyleTest {
 pmd {
     ignoreFailures = true
     toolVersion = '5.2.2'
-    reportsDir = file("$project.buildDir/reports/pmd") 
+//    reportsDir = file("$project.buildDir/reports/pmd") 
 //  	ruleSets = [ 
 //    	"basic", 
 //    	"braces" 
