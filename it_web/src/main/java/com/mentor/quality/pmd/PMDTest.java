@@ -12,6 +12,6 @@ public class PMDTest {
 	}
 
 	public static void CallHello() {
-		system.out.println("Hello PMD World!");
+		System.out.println("Hello PMD World!");
 	}
 }
