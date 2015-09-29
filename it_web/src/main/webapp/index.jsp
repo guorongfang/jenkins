@@ -8,6 +8,7 @@
 </head>
 <body>
 
-Hello Jenkins, Gradle, Git!
+Jenkins, Gradle, Git Demo!
+
 </body>
 </html>
