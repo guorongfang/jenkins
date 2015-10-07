@@ -11,7 +11,5 @@ public class App
         System.out.println( "Hello World!" );
         String PASSWORD="secret";
         
-        blar;
-        
      }
 }
