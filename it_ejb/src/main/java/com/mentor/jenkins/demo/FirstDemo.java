@@ -18,7 +18,7 @@ public class FirstDemo implements FirstDemoRemote {
 	
 	@Override public String testDemo() { 
 		// TODO Auto-generated method stub 
-		return "Test Demo"; 
+		return "Test Jenkins Demo"; 
 	} 
 }
 
